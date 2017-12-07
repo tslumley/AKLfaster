@@ -1,5 +1,5 @@
 one.snp = function(snp, perm, df){
-    coef(summary(lm(sbp[perm]~as.numeric(snp)+sex,data=df)))[2,3]
+    coef(summary(lm(sbp~as.numeric(snp)[perm]+sex,data=df)))[2,3]
 }
 
 one.gene<-function(snps, perm, df){
@@ -13,7 +13,8 @@ one.perm<-function(snps, df){
     one.gene(snps,perm=sample(1:n), df)
 }
 
-genedata<-read.csv("https://raw.githubusercontent.com/tslumley/AKLfaster/master/examplebp.csv")
+## start with no missing data
+genedata<-na.omit(read.csv("https://raw.githubusercontent.com/tslumley/AKLfaster/master/examplebp.csv"))
 
 snps<-genedata[,4:14]
 phenotype<-genedata[,2:3]
