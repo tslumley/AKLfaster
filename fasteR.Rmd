@@ -249,7 +249,60 @@ R does know `x` is safe
   0.166   0.025   0.190 
 ```
 
+---
 
+## Dataframes are slower
+
+```
+> dim(acsdf)
+[1] 151885    298
+> microbenchmark(sum(acsdf[,100]))
+Unit: microseconds
+              expr   min     lq     mean median    uq    max neval
+ sum(acsdf[, 100]) 7.654 8.6315 11.29369  9.117 9.784 75.909   100
+> microbenchmark(sum(acslist[[100]]))
+Unit: nanoseconds
+                expr min    lq   mean median    uq   max neval
+ sum(acslist[[100]]) 330 340.5 740.67    447 561.5 10817   100
+```
+
+---
+
+## Dataframes are slower
+
+
+```
+> str(sequence)
+ num [1:5000, 1:4028] 0 0 0 0 0 0 0 0 0 0 ...
+> system.time(colMeans(sequence))
+   user  system elapsed 
+  0.026   0.000   0.026 
+> system.time(colMeans(sequencedf))
+   user  system elapsed 
+  0.186   0.059   0.246 
+> microbenchmark(sequence[200:250,200:250])
+Unit: microseconds
+                       expr
+ sequence[200:250, 200:250]
+              min     lq     mean  median      uq    max neval
+              8.938 9.4135 11.76206 10.0835 10.4745 34.582   100
+> microbenchmark(sequencedf[200:250,200:250])
+Unit: microseconds
+                         expr     
+ sequencedf[200:250, 200:250] 
+             min      lq     mean  median       uq      max neval
+             437.748 484.339 1565.898 567.917 666.1715 95096.32   100
+  
+```
+---
+
+## Other alternatives
+
+`data.table` and `tbl` are both faster. 
+
+They both claim to be drop-in replacements for `data.frame`. 
+
+Neither actually is, but they're *close*, and if you're editing the code anyway...
 
 
 ---
