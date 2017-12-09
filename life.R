@@ -179,8 +179,8 @@ ncols=100
 nrows=150
 ncols=150
  alive=matrix(0,nrows+2,ncols+1)
- alive[5+(1:9),5+(1:36)]=as.matrix(gg)
- alive[50+(1:9),50+(1:36)]=as.matrix(gg)
+ alive[5+(1:9),5+(1:36)]=as.matrix(gun)
+ alive[50+(1:9),50+(1:36)]=as.matrix(gun)
  n.updates  =  1000 
  
  do.basic.plot(nrows, ncols)
@@ -199,8 +199,8 @@ ncols=150
 nrows=150
 ncols=150
  alive=matrix(0,nrows+2,ncols+2)
- alive[5+(1:9),5+(1:36)]=as.matrix(gg)
- alive[50+(1:9),50+(1:36)]=as.matrix(gg)
+ alive[5+(1:9),5+(1:36)]=as.matrix(gun)
+ alive[50+(1:9),50+(1:36)]=as.matrix(gun)
  n.updates  =  1000 
  
  do.basic.plot(nrows, ncols)
