@@ -314,7 +314,7 @@ The *Basic Linear Algebra Subsystem* has the elementary matrix and vector operat
 - Matrix operations in R are already in efficient C
 - Data flow onto the CPU is main bottleneck
 - Using an optimised version of BLAS can still help **a lot**
-    - Apple vecLib, Goto's BLAS, Intel MKL, ATLAS
+    - Apple vecLib,  Intel MKL, OpenBLAS
 - Don't write your own linear algebra, let the professionals do it.    
 
 ---
